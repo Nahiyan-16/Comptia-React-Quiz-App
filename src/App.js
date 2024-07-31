@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import SubjectCard from "./Components/SubjectCard";
+import Quiz from "./Components/Quiz";
+import subjects from "./data";
+import "./style.css";
 
-function App() {
+const App = () => {
+  const [selectedSubjectIndex, setSelectedSubjectIndex] = useState(null);
+
+  const handleSelectSubject = (index) => {
+    setSelectedSubjectIndex(index);
+  };
+
+  const handleReset = () => {
+    setSelectedSubjectIndex(null);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      {selectedSubjectIndex === null ? (
+        <div className="grid">
+          {subjects.map((subject, index) => (
+            <SubjectCard
+              key={index}
+              subject={subject}
+              index={index}
+              onSelect={handleSelectSubject}
+            />
+          ))}
+        </div>
+      ) : (
+        <Quiz subjectIndex={selectedSubjectIndex} onReset={handleReset} />
+      )}
     </div>
   );
-}
+};
 
 export default App;
