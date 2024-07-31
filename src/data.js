@@ -1,9 +1,14 @@
 import mobileDevicesQuestions from "./Subjects/mobileDevices";
+import networkingQuestions from "./Subjects/networking";
 
 const subjects = [
   {
     subject: "Mobile Devices",
     questions: mobileDevicesQuestions,
+  },
+  {
+    subject: "Networking",
+    questions: networkingQuestions,
   },
   {
     subject: "Science",
