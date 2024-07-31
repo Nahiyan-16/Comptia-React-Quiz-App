@@ -96,7 +96,7 @@ const Quiz = ({ subjectIndex, onReset }) => {
                   {currentQuestion.answer ===
                   userAnswers[userAnswers.length - 1].userAnswer
                     ? "Correct! "
-                    : "Wrong! "}
+                    : ""}
                   {currentQuestion.explanation}
                 </p>
               </div>
